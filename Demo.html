@@ -1,0 +1,100 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>COVID19 en Bogota</title>
+</head>
+<body onload=draw();>
+<canvas id="canvas"></canvas>
+</body>
+<script>
+
+﻿data = '[        {            "dia": "1",            "fecha": "2020-03-11",            "dato": "5"        },        {            "dia": "2",            "fecha": "2020-03-12",            "dato": "5"        },        {            "dia": "3",            "fecha": "2020-03-13",            "dato": "7"        },        {            "dia": "4",            "fecha": "2020-03-14",            "dato": "6"        },        {            "dia": "5",            "fecha": "2020-03-15",            "dato": "5"        },        {            "dia": "6",            "fecha": "2020-03-16",            "dato": "9"        },        {            "dia": "7",            "fecha": "2020-03-17",            "dato": "15"        },        {            "dia": "8",            "fecha": "2020-03-18",            "dato": "15"        },        {            "dia": "9",            "fecha": "2020-03-19",            "dato": "20"        },        {            "dia": "10",            "fecha": "2020-03-20",            "dato": "29"        },        {            "dia": "11",            "fecha": "2020-03-21",            "dato": "30"        },        {            "dia": "12",            "fecha": "2020-03-22",            "dato": "28"        },        {            "dia": "13",            "fecha": "2020-03-23",            "dato": "57"        },        {            "dia": "14",            "fecha": "2020-03-24",            "dato": "73"        },        {            "dia": "15",            "fecha": "2020-03-25",            "dato": "55"        },        {            "dia": "16",            "fecha": "2020-03-26",            "dato": "71"        },        {            "dia": "17",            "fecha": "2020-03-27",            "dato": "71"        },        {            "dia": "18",            "fecha": "2020-03-28",            "dato": "55"        },        {            "dia": "19",            "fecha": "2020-03-29",            "dato": "92"        },        {            "dia": "20",            "fecha": "2020-03-30",            "dato": "94"        },        {            "dia": "21",            "fecha": "2020-03-31",            "dato": "89"        },        {            "dia": "22",            "fecha": "2020-04-01",            "dato": "113"        },        {            "dia": "23",            "fecha": "2020-04-02",            "dato": "80"        },        {            "dia": "24",            "fecha": "2020-04-03",            "dato": "70"        },        {            "dia": "25",            "fecha": "2020-04-04",            "dato": "75"        },        {            "dia": "26",            "fecha": "2020-04-05",            "dato": "52"        },        {            "dia": "27",            "fecha": "2020-04-06",            "dato": "74"        },        {            "dia": "28",            "fecha": "2020-04-07",            "dato": "78"        },        {            "dia": "29",            "fecha": "2020-04-08",            "dato": "63"        },        {            "dia": "30",            "fecha": "2020-04-09",            "dato": "51"        },        {            "dia": "31",            "fecha": "2020-04-10",            "dato": "55"        },        {            "dia": "32",            "fecha": "2020-04-11",            "dato": "116"        },        {            "dia": "33",            "fecha": "2020-04-12",            "dato": "77"        },        {            "dia": "34",            "fecha": "2020-04-13",            "dato": "81"        },        {            "dia": "35",            "fecha": "2020-04-14",            "dato": "57"        },        {            "dia": "36",            "fecha": "2020-04-15",            "dato": "64"        },        {            "dia": "37",            "fecha": "2020-04-16",            "dato": "122"        },        {            "dia": "38",            "fecha": "2020-04-17",            "dato": "69"        },        {            "dia": "39",            "fecha": "2020-04-18",            "dato": "83"        },        {            "dia": "40",            "fecha": "2020-04-19",            "dato": "101"        },        {            "dia": "41",            "fecha": "2020-04-20",            "dato": "92"        },        {            "dia": "42",            "fecha": "2020-04-21",            "dato": "76"        },        {            "dia": "43",            "fecha": "2020-04-22",            "dato": "92"        },        {            "dia": "44",            "fecha": "2020-04-23",            "dato": "158"        },        {            "dia": "45",            "fecha": "2020-04-24",            "dato": "93"        },        {            "dia": "46",            "fecha": "2020-04-25",            "dato": "77"        },        {            "dia": "47",            "fecha": "2020-04-26",            "dato": "73"        },        {            "dia": "48",            "fecha": "2020-04-27",            "dato": "133"        },        {            "dia": "49",            "fecha": "2020-04-28",            "dato": "108"        },        {            "dia": "50",            "fecha": "2020-04-29",            "dato": "148"        },        {            "dia": "51",            "fecha": "2020-04-30",            "dato": "135"        },        {            "dia": "52",            "fecha": "2020-05-01",            "dato": "128"        },        {            "dia": "53",            "fecha": "2020-05-02",            "dato": "104"        },        {            "dia": "54",            "fecha": "2020-05-03",            "dato": "88"        },        {            "dia": "55",            "fecha": "2020-05-04",            "dato": "110"        },        {            "dia": "56",            "fecha": "2020-05-05",            "dato": "143"        },        {            "dia": "57",            "fecha": "2020-05-06",            "dato": "170"        },        {            "dia": "58",            "fecha": "2020-05-07",            "dato": "158"        },        {            "dia": "59",            "fecha": "2020-05-08",            "dato": "196"        },        {            "dia": "60",            "fecha": "2020-05-09",            "dato": "210"        },        {            "dia": "61",            "fecha": "2020-05-10",            "dato": "148"        },        {            "dia": "62",            "fecha": "2020-05-11",            "dato": "178"        },        {            "dia": "63",            "fecha": "2020-05-12",            "dato": "223"        },        {            "dia": "64",            "fecha": "2020-05-13",            "dato": "282"        },        {            "dia": "65",            "fecha": "2020-05-14",            "dato": "225"        },        {            "dia": "66",            "fecha": "2020-05-15",            "dato": "234"        },        {            "dia": "67",            "fecha": "2020-05-16",            "dato": "207"        },        {            "dia": "68",            "fecha": "2020-05-17",            "dato": "263"        },        {            "dia": "69",            "fecha": "2020-05-18",            "dato": "380"        },        {            "dia": "70",            "fecha": "2020-05-19",            "dato": "428"        },        {            "dia": "71",            "fecha": "2020-05-20",            "dato": "384"        },        {            "dia": "72",            "fecha": "2020-05-21",            "dato": "261"        },        {            "dia": "73",            "fecha": "2020-05-22",            "dato": "398"        },        {            "dia": "74",            "fecha": "2020-05-23",            "dato": "325"        },        {            "dia": "75",            "fecha": "2020-05-24",            "dato": "282"        },        {            "dia": "76",            "fecha": "2020-05-25",            "dato": "365"        },        {            "dia": "77",            "fecha": "2020-05-26",            "dato": "429"        },        {            "dia": "78",            "fecha": "2020-05-27",            "dato": "370"        },        {            "dia": "79",            "fecha": "2020-05-28",            "dato": "362"        },        {            "dia": "80",            "fecha": "2020-05-29",            "dato": "408"        },        {            "dia": "81",            "fecha": "2020-05-30",            "dato": "351"        },        {            "dia": "82",            "fecha": "2020-05-31",            "dato": "367"        },        {            "dia": "83",            "fecha": "2020-06-01",            "dato": "452"        },        {            "dia": "84",            "fecha": "2020-06-02",            "dato": "434"        },        {            "dia": "85",            "fecha": "2020-06-03",            "dato": "321"        },        {            "dia": "86",            "fecha": "2020-06-04",            "dato": "291"        },        {            "dia": "87",            "fecha": "2020-06-05",            "dato": "289"        },        {            "dia": "88",            "fecha": "2020-06-06",            "dato": "186"        },        {            "dia": "89",            "fecha": "2020-06-07",            "dato": "49"        },        {            "dia": "90",            "fecha": "2020-06-08",            "dato": "10"        }]';
+        var x=10;
+        var y=10;
+        var m = { x: innerWidth/2, y: innerHeight/2 };
+        var jsondata = JSON.parse(data);
+        window.onmousemove = function (e)
+            {
+            m.x =e.clientX;
+            m.y = e.clientY;
+            x=m.x;
+            y=m.y;
+
+        }
+        
+        function draw(){
+        requestAnimationFrame(draw);
+ 
+   	    // Get the canvas element form the page
+	    var canvas = document.getElementById("canvas");
+	    canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+	    // Make a 2D context
+	    var ctx = canvas.getContext("2d");
+	   
+        xbar = (x-(x % 10+50));
+        
+        ctx.fillStyle = 'black';
+	    ctx.font = '60px sans-serif';
+	    ctx.fillText("COVID19 en Bogotá",20,100);
+	    ctx.font = '30px sans-serif';
+	    ctx.fillText("11 de Marzo a 8 de Junio",20,140)
+	    ctx.font = '15px sans-serif';
+	    ctx.fillText("Laboratorio Hipermedia, Fundación Universitaria Los Libertadores. 2020",20,650);
+	    ctx.font = '10px sans-serif';
+	    ctx.fillText("Jose David Cuartas Correa. PhD en Diseño y Creación. 2020",20,670);
+	    
+	    ctx.fillText("Datos tomados de: https://www.ins.gov.co/Paginas/Boletines-casos-COVID-19-Colombia.aspx",20,710);	   
+	    ctx.fillText("Archivo: https://www.ins.gov.co/BoletinesCasosCOVID19Colombia/2020-06-09.xlsx",20,730); 
+	    
+
+
+    for (i = 0; i < 90; i++) {
+    
+  
+      //dia = int(datosdia.getString("dia"));
+      dia = jsondata[i].dia
+      //fecha = datosdia.getString("fecha");
+      fecha = jsondata[i].fecha
+      //dato = int(datosdia.getString("dato"));
+      dato = jsondata[i].dato
+      //line(i+50, 500, i+50,500-dato);
+      //fill(0);
+
+        ctx.beginPath();
+        ctx.fillRect((i*10)+50, 500, 5, -dato);
+        //ctx.fillRect(x, 400, 100, 50);
+        ctx.stroke();
+        ctx.closePath();  
+      //println(dia+"   "+fecha + " número de infectados en Bogotá: " + dato);
+    }
+    
+    
+    
+        dato = jsondata[(xbar/10)].dato
+        fecha = jsondata[(xbar/10)].fecha
+        //console.log(xbar);
+        //console.log(jsondata[0].dia);
+        //console.log(jsondata[0].fecha);
+        //console.log(jsondata[0].dato);
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.fillRect(xbar+50, 500, 5, -dato);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        
+        ctx.fillStyle = 'black';
+	    ctx.font = '30px sans-serif';
+	    ctx.fillText("Número de infectados en Bogotá"+dato+" Fecha: "+fecha,50,600);
+
+
+        }	
+
+
+</script>
+</html>
+
